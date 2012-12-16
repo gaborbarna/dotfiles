@@ -1,0 +1,4 @@
+continuousView yes
+initialZoom width
+urlCommand "firefox %s"
+

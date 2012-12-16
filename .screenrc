@@ -1,0 +1,8 @@
+shell -$SHELL
+startup_message off
+defscrollback 1000
+hardstatus alwayslastline '%{= wk}%?%-Lw%?%{r}(%{k}%n*%f%t%?(%u)%?%{r})%{k}%?%+Lw%?%?%= %m/%d %C%A'
+activity ''
+vbell off
+defutf8 on
+

@@ -1,0 +1,109 @@
+# set to yes if you want Conky to be forked in the background
+background no
+
+out_to_console no
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+
+#xftfont Bitstream Vera Sans Mono-7
+xftfont fixed-8
+#xftfont Newspaper-7
+own_window_transparent no
+own_window_colour hotpink
+# Text alpha when using Xft
+xftalpha 0.8
+
+#on_bottom yes
+
+# mail spool
+mail_spool $MAIL
+
+# Update interval in seconds
+update_interval 1
+# Create own window instead of using desktop (required in nautilus)
+own_window no
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders 1
+
+# border margins
+#border_margin 4
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color white
+default_outline_color white
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#minimum_size 10 10
+gap_x 23
+gap_y 12
+#alignment top_right
+alignment bottom_right
+#alignment bottom_right
+
+# Gap between borders of screen and text
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+
+sgrey 657b83
+TEXT
+${color #657b83}$sysname $kernel on $machine
+${color #657b83}Uptime:${color #93a1a1} $uptime ${color #93a1a1}- Load:${color #93a1a1} $loadavg
+${color #657b83}Core 1: ${color #93a1a1}${cpu cpu0}% @ ${freq 1} MHz ${alignr}${color #657b83}Core 2: ${color #93a1a1}${cpu cpu2}% @ ${freq 2} MHz
+${color #657b83}${cpubar cpu1 7, 230}${alignr}${cpubar cpu2 7, 230}
+${color #657b83}${cpugraph cpu1 48,230 657b83 657b83}${alignr}${color #657b83}${cpugraph cpu2 48,230 657b83 657b83}
+${color #657b83}CPU temperature:${color #93a1a1} ${hwmon 0 temp 1}/${hwmon 0 temp 2} °C
+
+${color #657b83}Battery: ${color #93a1a1}${battery_percent}% ${color #657b83}${battery_bar BAT0}
+${color #657b83}$stippled_hr
+${color #657b83}RAM Usage:${color #93a1a1} $mem/$memmax - $memperc%${alignr}${color #657b83}${membar 7,280}
+${color #657b83}Swap Usage:${color #93a1a1} $swap/$swapmax - $swapperc%${alignr}${color #657b83}${swapbar 7,280}
+${color #657b83}Processes:${color #93a1a1} $processes  ${color #657b83}Running:${color #93a1a1} $running_processes
+${color #657b83}$stippled_hr
+${color #657b83}Networking:
+ Down:${color #93a1a1} ${downspeed wlan0} k/s${color #657b83} ${alignr}${color #657b83}Up:${color #93a1a1} ${upspeed wlan0} k/s
+${color #657b83}${downspeedgraph wlan0 32,230 657b83 657b83} $alignr${color #657b83}${upspeedgraph wlan0 32,230 657b83}
+${color #657b83}eth0: ${color #93a1a1}${addr eth0}
+${color #657b83}wlan0: ${color #93a1a1}${addr wlan0}
+${color #657b83}$stippled_hr
+
+${color #657b83}File systems:
+${color #657b83} / ${color #93a1a1}${fs_used /}/${fs_size /}${alignr}${color #657b83}${fs_bar 7,350 /}
+${color #657b83} /var ${color #93a1a1}${fs_used /var}/${fs_size /var}${alignr}${color #657b83}${fs_bar 7,350 /var}
+${color #657b83} /tmp ${color #93a1a1}${fs_used /tmp}/${fs_size /tmp}${alignr}${color #657b83}${fs_bar 7,350 /tmp}
+${color #657b83} /home ${color #93a1a1}${fs_used /home}/${fs_size /home}${alignr}${color #657b83}${fs_bar 7,350 /home}
+${color #657b83}$stippled_hr
+
+${color #657b83}CPU usage         PID    CPU%   MEM%${offset 20}Memory usage      PID    CPU%   MEM%
+${color #93a1a1} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}${offset 20}${color #93a1a1} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color #657b83} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}${offset 20}${color #657b83} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+${color #657b83} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}${offset 20}${color #657b83} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+
